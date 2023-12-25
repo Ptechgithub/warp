@@ -168,7 +168,7 @@ Generate_Wgcf_config() {
     [ -d "/etc/wireguard" ] || mkdir -p "/etc/wireguard"
     Read_WGCF_Profile
     Get_MTU
-    echo "WireGuard profile (/etc/wireguard/wgcf.conf) generation in progress..."
+    echo "WireGuard profile generation in progress..."
     cat <<EOF >${WGCF_conf}
 [Interface]
 PrivateKey = ${PrivateKey}
@@ -290,7 +290,7 @@ Warp_plus() {
     systemctl start wg-quick@wgcf
     echo ""
     echo -e "${cyan}----------------------------------${rest}"
-    Check_WARP_WireGuard_Status
+    WireGuard_Status
     echo -e "${cyan}----------------------------------${rest}"
     echo ""
 }
