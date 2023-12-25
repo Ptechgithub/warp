@@ -1,5 +1,6 @@
 # Warp and Warp +
 
+### یک اسکریپت Bash که به طور خودکار CloudFlare WARP را در لینوکس نصب و پیکربندی می‌کند، با کلاینت رسمی WARP یا WireGuard به شبکه‌های WARP متصل می‌شود.
 
 inatall
 ```
