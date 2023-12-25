@@ -93,8 +93,8 @@ install_cloudflare_warp_packages() {
             elif [ "$ID" == "centos" ]; then
                 curl -fsSl https://pkg.cloudflareclient.com/cloudflare-warp-ascii.repo | sudo tee /etc/yum.repos.d/cloudflare-warp.repo
                 sudo yum update -y
+                yum install epel-release -y || yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-${SysInfo_OS_Ver_major}.noarch.rpm -y
                 sudo yum install cloudflare-warp -y
-                yum install epel-release -y
                 yum install iproute wireguard-tools -y
             else
                 echo "ERROR: This operating system is not supported."
