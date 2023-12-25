@@ -10,5 +10,4 @@ bash <(curl -fsSL https://raw.githubusercontent.com/Ptechgithub/warp/main/instal
 
 
 ## Credits.
-
 [P3TERX](https://github.com/P3TERX/warp.sh)
