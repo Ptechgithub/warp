@@ -187,7 +187,7 @@ cat result.csv | awk -F, '$3!="timeout ms" {print} ' | sort -t, -nk2 -nk3 | uniq
 Endip=$(cat result.csv | grep -oE "[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+:[0-9]+" | head -n 1)
 echo""
 echo -e "${yellow}------------------------------------------${rest}"
-echo -e "${yellow} Best IP:Port ---> ${purple}$Endip  [$3] ${rest}"
+echo -e "${yellow} Best IP:Port ---> ${purple}$Endip  ${green}[$3] ${rest}"
 echo -e "${yellow}------------------------------------------${rest}"
 rm -rf ip.txt
 exit
