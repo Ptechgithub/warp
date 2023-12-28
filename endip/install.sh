@@ -187,7 +187,7 @@ clear
 cat result.csv | awk -F, '$3!="timeout ms" {print} ' | sort -t, -nk2 -nk3 | uniq | head -11 | awk -F, '{print "Endpoint "$1" Packet Loss Rate "$2" Average Delay "$3}'
 Endip=$(cat result.csv | grep -oE "[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+:[0-9]+" | head -n 1)
 echo""
-echo -e "${green}Saved in result.csv${rest}"
+echo -e "${green}Result Saved in result.csv${rest}"
 echo""
 echo -e "${yellow}------------------------------------------${rest}"
 echo -e "${yellow} Best IP:Port ---> ${purple}$Endip ${rest}"
