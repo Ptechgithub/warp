@@ -180,10 +180,10 @@ exit
 }
 
 clear
-echo "------------------------------------------------------"
+echo "--------------------------------------------"
 echo "甬哥Github项目  ：github.com/yonggekkk"
 echo "By --> Peyman * Github.com/Ptechgithub *"
-echo "------------------------------------------------------"
+echo "--------------------------------------------"
 echo""
 echo "1.IPV4 preferred peer IP"
 echo "2.IPV6 preferred peer IP"
