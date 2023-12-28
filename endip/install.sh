@@ -192,7 +192,7 @@ exit
 clear
 echo "--------------------------------------------"
 echo "甬哥Github项目  ：github.com/yonggekkk"
-echo -e "${yellow}By --> Peyman * Github.com/Ptechgithub *"
+echo -e "${yellow}By --> Peyman * Github.com/Ptechgithub *${rest}"
 echo "--------------------------------------------"
 echo""
 echo -e "${purple}1.${green}IPV4 preferred peer IP${rest}"
