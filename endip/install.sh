@@ -184,6 +184,10 @@ ulimit -n 102400
 chmod +x warpendpoint
 ./warpendpoint
 cat result.csv | awk -F, '$3!="timeout ms" {print} ' | sort -t, -nk2 -nk3 | uniq | head -11 | awk -F, '{print "Endpoint "$1" Packet Loss Rate "$2" Average Delay "$3}'
+Endip=$(cat result.csv | grep -oE "[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+:[0-9]+" | head -n 1)
+echo -e "${yellow}---------------------${rest}"
+echo -e "${yellow}Best IP:Port ---> ${purple}$Endip${rest}"
+echo -e "${yellow}---------------------${rest}"
 rm -rf ip.txt
 exit
 }
