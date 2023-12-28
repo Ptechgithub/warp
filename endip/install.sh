@@ -1,5 +1,15 @@
 #!/bin/bash
 
+#colors
+red='\033[0;31m'
+green='\033[0;32m'
+yellow='\033[0;33m'
+blue='\033[0;34m'
+purple='\033[0;35m'
+cyan='\033[0;36m'
+white='\033[0;37m'
+rest='\033[0m'
+
 case "$(uname -m)" in
 	x86_64 | x64 | amd64 )
 	    cpu=amd64
@@ -182,12 +192,12 @@ exit
 clear
 echo "--------------------------------------------"
 echo "甬哥Github项目  ：github.com/yonggekkk"
-echo "By --> Peyman * Github.com/Ptechgithub *"
+echo -e "${yellow}By --> Peyman * Github.com/Ptechgithub *"
 echo "--------------------------------------------"
 echo""
-echo "1.IPV4 preferred peer IP"
-echo "2.IPV6 preferred peer IP"
-echo "0.Exit"
+echo -e "${purple}1.${green}IPV4 preferred peer IP${rest}"
+echo -e "${purple}2.${green}IPV6 preferred peer IP${rest}"
+echo -e "${purple}0.${green}Exit${rest}"
 read -p "please choose: " menu
 if [ "$menu" == "1" ];then
 cfwarpIP && endipv4 && endipresult
