@@ -239,8 +239,8 @@ Install() {
     Register_NEW_Account
     Generate_WireGuard_profile
     Generate_Wgcf_config
-    systemctl enable --now wg-quick@wgcf    
-    (crontab -l 2>/dev/null | grep -q -F "0 4 * * * systemctl restart wg-quick@wgcf;systemctl restart warp-svc") || (crontab -l 2>/dev/null ; echo "0 4 * * * systemctl restart wg-quick@wgcf;systemctl restart warp-svc) | crontab - > /dev/null 2>&1
+    (crontab -l ; echo "0 4 * * * systemctl restart wg-quick@wgcf;systemctl restart warp-svc") | sort - | uniq - | crontab -
+    systemctl enable --now wg-quick@wgcf
     echo "Please Wait ..."
 	sleep 1
     echo ""
@@ -287,9 +287,9 @@ Warp_plus() {
 	wgcf update
 	Generate_WireGuard_profile
 	Generate_Wgcf_config
+	(crontab -l ; echo "0 4 * * * systemctl restart wg-quick@wgcf;systemctl restart warp-svc") | sort - | uniq - | crontab -
     systemctl enable wg-quick@wgcf
-    systemctl start wg-quick@2>&1
-    (crontab -l 2>/dev/null | grep -q -F "0 4 * * * systemctl restart wg-quick@wgcf;systemctl restart warp-svc") || (crontab -l 2>/dev/null ; echo "0 4 * * * systemctl restart wg-quick@wgcf;systemctl restart warp-svc) | crontab - > /dev/null 2>&1
+    systemctl start wg-quick@wgcf
     echo ""
     echo -e "${cyan}----------------------------------${rest}"
     WireGuard_Status
