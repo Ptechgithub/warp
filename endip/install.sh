@@ -179,6 +179,7 @@ rm -rf ip.txt
 exit
 }
 
+clear
 echo "------------------------------------------------------"
 echo "甬哥Github项目  ：github.com/yonggekkk"
 echo "By --> Peyman * Github.com/Ptechgithub *"
