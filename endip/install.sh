@@ -183,12 +183,15 @@ echo ${temp[@]} | sed -e 's/ /\n/g' | sort -u > ip.txt
 ulimit -n 102400
 chmod +x warpendpoint
 ./warpendpoint
+clear
 cat result.csv | awk -F, '$3!="timeout ms" {print} ' | sort -t, -nk2 -nk3 | uniq | head -11 | awk -F, '{print "Endpoint "$1" Packet Loss Rate "$2" Average Delay "$3}'
 Endip=$(cat result.csv | grep -oE "[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+:[0-9]+" | head -n 1)
+echo -e "${green}Saved in result.csv${rest}"
 echo""
 echo -e "${yellow}------------------------------------------${rest}"
 echo -e "${yellow} Best IP:Port ---> ${purple}$Endip ${green}[$3] ${rest}"
 echo -e "${yellow}------------------------------------------${rest}"
+rm warpendpoint
 rm -rf ip.txt
 exit
 }
