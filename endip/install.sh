@@ -189,7 +189,7 @@ Endip=$(cat result.csv | grep -oE "[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+:[0-9]+" | head
 echo -e "${green}Saved in result.csv${rest}"
 echo""
 echo -e "${yellow}------------------------------------------${rest}"
-echo -e "${yellow} Best IP:Port ---> ${purple}$Endip ${green}[$3] ${rest}"
+echo -e "${yellow} Best IP:Port ---> ${purple}$Endip ${rest}"
 echo -e "${yellow}------------------------------------------${rest}"
 rm warpendpoint
 rm -rf ip.txt
