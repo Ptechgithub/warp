@@ -215,9 +215,9 @@ echo -e "${purple}2.${green}IPV6 preferred peer IP${rest}"
 echo -e "${purple}0.${green}Exit${rest}"
 read -p "please choose: " menu
 if [ "$menu" == "1" ];then
-cfwarpIP && endipv4 && Endip_v4 && endipresult
+cfwarpIP && endipv4 && endipresult && Endip_v4
 elif [ "$menu" == "2" ];then
-cfwarpIP && endipv6 && Endip_v6 && endipresult
+cfwarpIP && endipv6 && endipresult && Endip_v6
 else 
 exit
 fi
