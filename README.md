@@ -11,6 +11,11 @@ bash <(curl -fsSL https://raw.githubusercontent.com/Ptechgithub/warp/main/instal
 
 ![15](https://raw.githubusercontent.com/Ptechgithub/configs/main/media/15.jpg)
 
+## اسکنر IP warp
+[Endpoint IP scanner]
+```
+bash <(curl -fsSL https://raw.githubusercontent.com/Ptechgithub/warp/main/endip/install.sh)
+```
 [دریافت License Key رایگان](https://t.me/generatewarpplusbot)
 
 ## Credits.
