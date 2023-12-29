@@ -13,8 +13,7 @@ bash <(curl -fsSL https://raw.githubusercontent.com/Ptechgithub/warp/main/instal
 
 .
 
-[Endpoint IP scanner]
-# اسکنر آی پی warp
+# اسکنر آی پی warp (Endpoint IP scanner)
 ```
 bash <(curl -fsSL https://raw.githubusercontent.com/Ptechgithub/warp/main/endip/install.sh)
 ```
