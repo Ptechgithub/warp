@@ -185,12 +185,19 @@ chmod +x warpendpoint
 ./warpendpoint
 clear
 cat result.csv | awk -F, '$3!="timeout ms" {print} ' | sort -t, -nk2 -nk3 | uniq | head -11 | awk -F, '{print "Endpoint "$1" Packet Loss Rate "$2" Average Delay "$3}'
-Endip=$(cat result.csv | grep -oE "[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+:[0-9]+" | head -n 1)
+Endip_v4=$(cat result.csv | grep -oE "[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+:[0-9]+" | head -n 1)
+Endip_v6=$(cat result.csv | grep -oE "\[.*\]:[0-9]+" | head -n 1)
 echo""
 echo -e "${green}Results Saved in result.csv${rest}"
 echo""
 echo -e "${yellow}------------------------------------------${rest}"
-echo -e "${yellow} Best IP:Port ---> ${purple}$Endip ${rest}"
+if [ "$Endip_v4" ]; then
+  echo -e "${yellow} Best IPv4:Port ---> ${purple}$Endip_v4 ${rest}"
+elif [ "$Endip_v6" ]; then
+  echo -e "${yellow} Best IPv6:Port ---> ${purple}$Endip_v6 ${rest}"
+else
+  echo -e "${red} No valid IP addresses found.${rest}"
+fi
 echo -e "${yellow}------------------------------------------${rest}"
 rm warpendpoint
 rm -rf ip.txt
@@ -208,8 +215,10 @@ echo -e "${purple}2.${green}IPV6 preferred peer IP${rest}"
 echo -e "${purple}0.${green}Exit${rest}"
 read -p "please choose: " menu
 if [ "$menu" == "1" ];then
+Endip_v4
 cfwarpIP && endipv4 && endipresult
 elif [ "$menu" == "2" ];then
+Endip_v6
 cfwarpIP && endipv6 && endipresult
 else 
 exit
