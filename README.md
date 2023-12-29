@@ -16,6 +16,7 @@ bash <(curl -fsSL https://raw.githubusercontent.com/Ptechgithub/warp/main/instal
 ```
 bash <(curl -fsSL https://raw.githubusercontent.com/Ptechgithub/warp/main/endip/install.sh)
 ```
+![16](https://raw.githubusercontent.com/Ptechgithub/configs/main/media/16.jpg)
 [دریافت License Key رایگان](https://t.me/generatewarpplusbot)
 
 ## Credits.
