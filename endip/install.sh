@@ -1,4 +1,4 @@
-#!/bin/bash
+0~#!/bin/bash
 
 #colors
 red='\033[0;31m'
@@ -186,19 +186,28 @@ chmod +x warpendpoint
 clear
 cat result.csv | awk -F, '$3!="timeout ms" {print} ' | sort -t, -nk2 -nk3 | uniq | head -11 | awk -F, '{print "Endpoint "$1" Packet Loss Rate "$2" Average Delay "$3}'
 Endip_v4=$(cat result.csv | grep -oE "[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+:[0-9]+" | head -n 1)
+bestips_v4=$(cat result.csv | grep -oE "[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+:[0-9]+" | head -n 10)
 Endip_v6=$(cat result.csv | grep -oE "\[.*\]:[0-9]+" | head -n 1)
+bestips_v6=$(cat result.csv | grep -oE "\[.*\]:[0-9]+" | head -n 10)
 echo""
 echo -e "${green}Results Saved in result.csv${rest}"
 echo""
 echo -e "${yellow}------------------------------------------${rest}"
 if [ "$Endip_v4" ]; then
   echo -e "${yellow} Best IPv4:Port ---> ${purple}$Endip_v4 ${rest}"
+  for ip_port in $bestips_v4; do
+    echo "warp://$ip_port/?ifp=5-10"
+done
 elif [ "$Endip_v6" ]; then
   echo -e "${yellow} Best IPv6:Port ---> ${purple}$Endip_v6 ${rest}"
+  for ip_port in $bestips_v6; do
+    echo "warp://$ip_port/?ifp=5-10"
+done
 else
   echo -e "${red} No valid IP addresses found.${rest}"
 fi
 echo -e "${yellow}------------------------------------------${rest}"
+
 rm warpendpoint
 rm -rf ip.txt
 exit
