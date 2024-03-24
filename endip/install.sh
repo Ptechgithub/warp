@@ -41,8 +41,8 @@ cfwarpIP() {
         fi
     else
         curl -L -o wgcf -# --retry 2 https://github.com/ViRb3/wgcf/releases/download/v2.2.22/wgcf_2.2.22_linux_$cpu
-        cp wgcf $PREFIX/bin
-        chmod +x $PREFIX/bin/wgcf
+        cp wgcf $PREFIX/usr/bin
+        chmod +x $PREFIX/usr/bin/wgcf
     fi
 }
 
