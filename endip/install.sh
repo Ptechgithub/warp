@@ -220,10 +220,9 @@ v2ray() {
   PrivateKey=$(awk -F' = ' '/PrivateKey/{print $2}' wgcf-profile.conf)
   Address=$(awk -F' = ' '/Address/{print $2}' wgcf-profile.conf | tr '\n' ',' | sed 's/,$//;s/,/, /g')
   PublicKey=$(awk -F' = ' '/PublicKey/{print $2}' wgcf-profile.conf)
-  Endpoint=$(awk -F' = ' '/Endpoint/{print $2}' wgcf-profile.conf)
   MTU=$(awk -F' = ' '/MTU/{print $2}' wgcf-profile.conf)
-
-  WireguardURL="wireguard://$(urlencode "$PrivateKey")@188.114.96.47:2408?address=$(urlencode "$Address")&publickey=$(urlencode "$PublicKey")&mtu=$(urlencode "$MTU")#Peyman_WireGuard"
+  
+  WireguardURL="wireguard://$(urlencode "$PrivateKey")@$Endip_v46?address=$(urlencode "$Address")&publickey=$(urlencode "$PublicKey")&mtu=$(urlencode "$MTU")#Peyman_WireGuard"
 
   echo $WireguardURL
 }
@@ -232,6 +231,12 @@ show() {
     echo ""
     sleep1
     clear
+    if [ -s result.csv ]; then
+	    Endip_v46=$(awk 'NR==2 {split($1, arr, ","); print arr[1]}' result.csv)
+	    sed -i "s/Endpoint =.*/Endpoint = $Endip_v46/g" wgcf-profile.conf
+    else
+	    Endip_v46="engage.cloudflareclient.com:2408"
+	fi
     echo -e "${purple}************************************${rest}"
     echo -e "${purple}*   👇${green}Here is WireGuard Config👇   ${purple}*${rest}"
     echo -e "${purple}************************************${rest}"
@@ -242,7 +247,9 @@ show() {
     echo -e "${purple}************************************${rest}"
     echo -e "${cyan}       👇Copy for :${yellow}[V2rayNG] 👇${rest}"
     echo ""
-    echo -e "${green}$(v2ray) ${rest}"
+    echo -e "${green}$(v2ray)${rest}"
+    echo -e "${purple}************************************${rest}"
+    echo -e "${green}if you couldn't paste it in ${yellow}V2rayNG${yellow} or ${yellow}Nekobox${green}, copy it to a text editor and remove any extra spaces.${rest}"
     echo -e "${purple}************************************${rest}"
 }
 
