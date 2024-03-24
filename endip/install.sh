@@ -184,15 +184,11 @@ generate() {
         echo -e "${purple}*********************${rest}"
         echo -e "${green}Downloading the required file ...${rest}"
         if [[ "$(uname -o)" == "Android" ]]; then
-            if ! command -v curl &>/dev/null; then
+			if ! command -v curl &>/dev/null; then
 			    pkg install curl -y
 			fi
-			
-			if ! command -v wget &>/dev/null; then
-			    pkg install wget -y
-			fi
             if [[ -n $cpu ]]; then
-                wget https://raw.githubusercontent.com/Ptechgithub/warp/main/endip/wgcf -P "$PREFIX/bin"
+                curl -o "$PREFIX/bin/wgcf" -L "https://raw.githubusercontent.com/Ptechgithub/warp/main/endip/wgcf"
                 chmod +x "$PREFIX/bin/wgcf"
             fi
         else
