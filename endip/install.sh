@@ -30,12 +30,18 @@ case "$(uname -m)" in
 esac
 
 cfwarpIP() {
-    if [[ ! -f "$PREFIX/bin/warpendpoint" ]]; then
-        echo "Downloading warpendpoint program"
-        if [[ -n $cpu ]]; then
-            curl -L -o warpendpoint -# --retry 2 https://raw.githubusercontent.com/Ptechgithub/warp/main/endip/$cpu
-            cp warpendpoint $PREFIX/bin
-            chmod +x $PREFIX/bin/warpendpoint
+    if [[ "$(uname -o)" == "Android" ]]; then
+        if [[ ! -f "$PREFIX/bin/warpendpoint" ]]; then
+            echo "Downloading warpendpoint program"
+            if [[ -n $cpu ]]; then
+                curl -L -o warpendpoint -# --retry 2 https://raw.githubusercontent.com/Ptechgithub/warp/main/endip/$cpu
+                cp warpendpoint $PREFIX/bin
+                chmod +x $PREFIX/bin/warpendpoint
+            fi
+        else
+            curl -L -o wgcf -# --retry 2 https://github.com/ViRb3/wgcf/releases/download/v2.2.22/wgcf_2.2.22_linux_$cpu
+            cp wgcf $PREFIX/bin
+            chmod +x $PREFIX/bin/wgcf
         fi
     fi
 }
