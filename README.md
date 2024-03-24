@@ -6,7 +6,7 @@
  
  امکان فعال کردن warp یا warp + روی IPV4 و IPV6 به صورت انتخابی.
 
-# 1
+# [1]
 inatall
 ```
 bash <(curl -fsSL https://raw.githubusercontent.com/Ptechgithub/warp/main/install.sh)
@@ -19,7 +19,7 @@ bash <(curl -fsSL https://raw.githubusercontent.com/Ptechgithub/warp/main/instal
 
 ## اسکنر IP Warp و دریافت کانفیگ رایگان WireGuard برای V2ray و Nekobox و همچنين خود WireGuard 
 
-# 2
+# [2]
 ```
 bash <(curl -fsSL https://raw.githubusercontent.com/Ptechgithub/warp/main/endip/install.sh)
 ```
