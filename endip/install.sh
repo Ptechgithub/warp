@@ -180,26 +180,33 @@ endipv6(){
 }
 
 generate() {
-  if ! command -v wgcf &>/dev/null; then
+    if ! command -v wgcf &>/dev/null; then
+        echo -e "${purple}*********************${rest}"
+        echo -e "${green}Downloading the required file ...${rest}"
+        if [[ "$(uname -o)" == "Android" ]]; then    
+            if [[ -n $cpu ]]; then
+                wget https://raw.githubusercontent.com/Ptechgithub/warp/main/endip/wgcf -P "$PREFIX/bin"
+                chmod +x "$PREFIX/bin/wgcf"
+            fi
+        else
+            curl -L -o wgcf -# --retry 2 "https://github.com/ViRb3/wgcf/releases/download/v2.2.22/wgcf_2.2.22_linux_$cpu"
+            cp wgcf "$PREFIX/usr/local/bin"
+            chmod +x "$PREFIX/usr/local/bin/wgcf"
+        fi
+    fi
     echo -e "${purple}*********************${rest}"
-    echo -e "${green}Downloading the required file ...${rest}"
-    wget https://raw.githubusercontent.com/Ptechgithub/warp/main/endip/wgcf -P "$PREFIX/bin"
-    chmod +x "$PREFIX/bin/wgcf"
-  fi
+    echo -e "${green}Generating free warp config . please wait ...${rest}"
+    echo ""
+    wgcf register --accept-tos
+    echo -e "${blue}***********************${rest}"
+    wgcf generate
+    rm wgcf-account.toml >/dev/null 2>&1
   
-  echo -e "${purple}*********************${rest}"
-  echo -e "${green}Generating free warp config . please wait ...${rest}"
-  echo ""
-  wgcf register --accept-tos
-  echo -e "${blue}***********************${rest}"
-  wgcf generate
-  rm wgcf-account.toml >/dev/null 2>&1
-  
-  if [ -f wgcf-profile.conf ]; then
-      show
-  else
-      echo -e "${red}wgcf-profile.conf not found in current path or failed to install${rest}"
-  fi
+    if [ -f wgcf-profile.conf ]; then
+        show
+    else
+        echo -e "${red}wgcf-profile.conf not found in current path or failed to install${rest}"
+    fi
 }
 
 v2ray() {
