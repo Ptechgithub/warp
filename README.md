@@ -52,7 +52,5 @@ bash <(curl -fsSL https://raw.githubusercontent.com/Ptechgithub/warp/main/endip/
 ### برای دریافت لایسنس رایگان از طریق ربات تلگرام روی لینک زیر کلیک کنید.
 [دریافت License Key رایگان](https://t.me/generatewarpplusbot)
 
-### برای ویندور از این پروژه استفاده کنید: [yonggekkk](https://raw.githubusercontent.com/yonggekkk/warp-yg/main/WIN%E7%AB%AFwarp%E8%87%AA%E9%80%89IP-v23.11.15.zip)
-
 ## Credits.
 [P3TERX](https://github.com/P3TERX/warp.sh) & [yonggekkk](https://github.com/yonggekkk) & [Misaka-blog](https://github.com/Misaka-blog) & [ViRb3](https://github.com/ViRb3/wgcf)
