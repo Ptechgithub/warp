@@ -29,14 +29,15 @@ case "$(uname -m)" in
 	;;
 esac
 
-cfwarpIP(){
-
-if [[ ! -f "warpendpoint" ]]; then
-echo "Download warp preferred program"
-if [[ -n $cpu ]]; then
-curl -L -o warpendpoint -# --retry 2 https://raw.githubusercontent.com/Ptechgithub/warp/main/endip/$cpu
-fi
-fi
+cfwarpIP() {
+    if [[ ! -f "$PREFIX/bin/warpendpoint" ]]; then
+        echo "Downloading warpendpoint program"
+        if [[ -n $cpu ]]; then
+            curl -L -o warpendpoint -# --retry 2 https://raw.githubusercontent.com/Ptechgithub/warp/main/endip/$cpu
+            cp warpendpoint $PREFIX/bin
+            chmod +x $PREFIX/bin/warpendpoint
+        fi
+    fi
 }
 
 endipv4(){
@@ -178,46 +179,110 @@ endipv6(){
 	done
 }
 
-endipresult(){
-echo ${temp[@]} | sed -e 's/ /\n/g' | sort -u > ip.txt
-ulimit -n 102400
-chmod +x warpendpoint
-./warpendpoint
-clear
-cat result.csv | awk -F, '$3!="timeout ms" {print} ' | sort -t, -nk2 -nk3 | uniq | head -11 | awk -F, '{print "Endpoint "$1" Packet Loss Rate "$2" Average Delay "$3}'
-Endip_v4=$(cat result.csv | grep -oE "[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+:[0-9]+" | head -n 1)
-Endip_v6=$(cat result.csv | grep -oE "\[.*\]:[0-9]+" | head -n 1)
-echo""
-echo -e "${green}Results Saved in result.csv${rest}"
-echo""
-echo -e "${yellow}------------------------------------------${rest}"
-if [ "$Endip_v4" ]; then
-  echo -e "${yellow} Best IPv4:Port ---> ${purple}$Endip_v4 ${rest}"
-elif [ "$Endip_v6" ]; then
-  echo -e "${yellow} Best IPv6:Port ---> ${purple}$Endip_v6 ${rest}"
-else
-  echo -e "${red} No valid IP addresses found.${rest}"
-fi
-echo -e "${yellow}------------------------------------------${rest}"
-rm warpendpoint
-rm -rf ip.txt
-exit
+generate() {
+  if ! command -v wgcf &>/dev/null; then
+    echo -e "${purple}*********************${rest}"
+    echo -e "${green}Downloading the required file ...${rest}"
+    wget https://raw.githubusercontent.com/Ptechgithub/warp/main/endip/wgcf -P "$PREFIX/bin"
+    chmod +x "$PREFIX/bin/wgcf"
+  fi
+  
+  echo -e "${purple}*********************${rest}"
+  echo -e "${green}Generating please wait ...${rest}"
+  wgcf register --accept-tos
+  echo -e "${blue}***********************${rest}"
+  wgcf generate
+  rm wgcf-account.toml >/dev/null 2>&1
+  
+  echo ""
+  echo -e "${purple}************************************${rest}"
+  echo -e "${green}   👇Here is WireGuard Config👇${rest}"
+  echo -e "${purple}************************************${rest}"
+  cat wgcf-profile.conf
+  echo -e "${purple}************************************${rest}"
+}
+
+endipresult() {
+    echo ${temp[@]} | sed -e 's/ /\n/g' | sort -u > ip.txt
+    ulimit -n 102400
+    chmod +x warpendpoint >/dev/null 2>&1
+    if command -v warpendpoint &>/dev/null; then
+        warpendpoint
+   else
+        ./warpendpoint
+    fi
+    
+    clear
+    cat result.csv | awk -F, '$3!="timeout ms" {print} ' | sort -t, -nk2 -nk3 | uniq | head -11 | awk -F, '{print "Endpoint "$1" Packet Loss Rate "$2" Average Delay "$3}'
+    Endip_v4=$(cat result.csv | grep -oE "[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+:[0-9]+" | head -n 1)
+    Endip_v6=$(cat result.csv | grep -oE "\[.*\]:[0-9]+" | head -n 1)
+    delay=$(cat result.csv | grep -oE "[0-9]+ ms|timeout" | head -n 1)
+    echo ""
+    echo -e "${green}Results Saved in result.csv${rest}"
+    echo ""
+    if [ "$Endip_v4" ]; then
+        echo -e "${purple}************************************${rest}"
+        echo -e "${purple}*           ${yellow}Best IPv4:Port${purple}         *${rest}"
+        echo -e "${purple}*                                  *${rest}"
+        echo -e "${purple}*          ${cyan}$Endip_v4${purple}     *${rest}"
+        echo -e "${purple}*           ${cyan}Delay: ${green}[$delay]        ${purple}*${rest}"
+        echo -e "${purple}************************************${rest}"
+    elif [ "$Endip_v6" ]; then
+        echo -e "${purple}********************************************${rest}"
+        echo -e "${purple}*          ${yellow}Best [IPv6]:Port                ${purple}*${rest}"
+        echo -e "${purple}*                                          *${rest}"
+        echo -e "${purple}* ${cyan}$Endip_v6${purple} *${rest}"
+        echo -e "${purple}*           ${cyan}Delay: ${green}[$delay]               ${purple}*${rest}"
+        echo -e "${purple}********************************************${rest}"
+    else
+        echo -e "${red} No valid IP addresses found.${rest}"
+    fi
+    rm warpendpoint >/dev/null 2>&1
+    rm -rf ip.txt
+    exit
 }
 
 clear
-echo "--------------------------------------------"
-echo "甬哥Github项目  ：github.com/yonggekkk"
-echo -e "${yellow}By --> Peyman * Github.com/Ptechgithub *${rest}"
-echo "--------------------------------------------"
-echo""
-echo -e "${purple}1.${green}IPV4 preferred peer IP${rest}"
-echo -e "${purple}2.${green}IPV6 preferred peer IP${rest}"
-echo -e "${purple}0.${green}Exit${rest}"
-read -p "please choose: " menu
-if [ "$menu" == "1" ];then
-cfwarpIP && endipv4 && endipresult && Endip_v4
-elif [ "$menu" == "2" ];then
-cfwarpIP && endipv6 && endipresult && Endip_v6
-else 
-exit
-fi
+echo -e "${cyan}By --> Peyman * Github.com/Ptechgithub * ${rest}"
+echo ""
+echo -e "${purple}*********************${rest}"
+echo -e "${purple}* ${green}Endpoint Scanner ${purple} *${rest}"
+echo -e "${purple}*********************${rest}"
+echo -e "${purple}[1] ${blue}Preferred${green} IPV4${purple}  * ${rest}"
+echo -e "${purple}                    *${rest}"
+echo -e "${purple}[2] ${blue}Preferred${green} IPV6${purple}  * ${rest}"
+echo -e "${purple}                    *${rest}"
+echo -e "${purple}[3] ${green}Get Warp Config${purple} *${rest}"
+echo -e "${purple}                    *${rest}"
+echo -e "${purple}[${red}0${purple}] Exit            *${rest}"
+echo -e "${purple}*********************${rest}"
+echo -en "${cyan}Enter your choice: ${rest}"
+read -r choice
+case "$choice" in
+    1)
+        echo -e "${purple}*********************${rest}"
+        cfwarpIP
+        endipv4
+        endipresult
+        Endip_v4
+        ;;
+    2)
+        echo -e "${purple}*********************${rest}"
+        cfwarpIP
+        endipv6
+        endipresult
+        Endip_v6
+        ;;
+    3)
+        generate
+        ;;
+    0)
+        echo -e "${purple}*********************${rest}"
+        echo -e "${cyan}By 🖐${rest}"
+        exit
+        ;;
+    *)
+        echo -e "${yellow}********************${rest}"
+        echo "Invalid choice. Please select a valid option."
+        ;;
+esac
