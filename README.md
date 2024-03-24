@@ -15,7 +15,7 @@ bash <(curl -fsSL https://raw.githubusercontent.com/Ptechgithub/warp/main/instal
 
 ## اسکنر IP Warp 
 ## Endpoint IP scanner
-این اسکریپت برای اسکن IP وارپ استفاده می‌شود.
+### این اسکریپت برای اسکن IP وارپ استفاده می‌شود.
 ```
 bash <(curl -fsSL https://raw.githubusercontent.com/Ptechgithub/warp/main/endip/install.sh)
 ```
