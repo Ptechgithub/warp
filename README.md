@@ -49,6 +49,7 @@ bash <(curl -fsSL https://raw.githubusercontent.com/Ptechgithub/warp/main/endip/
 ### اگر لایسنس گرفتید و برای تبدیل به warp-plus پس دریافت کانفیگ دستور زیر را وارد کنید:
 ### `WGCF_LICENSE_KEY="Your License" wgcf update`
 ### لایسنس خودتون رو به جای `Your License` قرار بدید و اجرا کنید.
+### برای گرفتن کانفیگ رایگان به تعداد زیاد درخواست نفرستید چون با خطای `Too Many Requestt` مواجه می شوید.  و باید صبر کنید.
 
 ### برای دریافت لایسنس رایگان از طریق ربات تلگرام روی لینک زیر کلیک کنید.
 [دریافت License Key رایگان](https://t.me/generatewarpplusbot)
