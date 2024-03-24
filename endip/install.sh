@@ -196,10 +196,44 @@ generate() {
   
   echo ""
   echo -e "${purple}************************************${rest}"
-  echo -e "${green}   👇Here is WireGuard Config👇${rest}"
+  echo -e "${purple}*   👇${green}Here is WireGuard Config👇   ${purple}*${rest}"
   echo -e "${purple}************************************${rest}"
-  cat wgcf-profile.conf
+  echo -e "${cyan}       👇Copy for :${yellow}[Nekobox] 👇${rest}"
+  echo ""
+  echo -e "${green}$(cat wgcf-profile.conf)${rest}"
+  echo ""
   echo -e "${purple}************************************${rest}"
+  echo -e "${cyan}       👇Copy for :${yellow}[V2rayNG] 👇${rest}"
+  echo ""
+  echo -e "${green}$(v2ray) ${rest}"
+  echo -e "${purple}************************************${rest}"
+}
+
+v2ray() {
+  urlencode() {
+    local string="$1"
+    local length="${#string}"
+    local urlencoded=""
+    for (( i = 0; i < length; i++ )); do
+      local c="${string:$i:1}"
+      case $c in
+        [a-zA-Z0-9.~_-]) urlencoded+="$c" ;;
+        *) printf -v hex "%02X" "'$c"
+           urlencoded+="%${hex: -2}"
+      esac
+    done
+    echo "$urlencoded"
+  }
+
+  PrivateKey=$(awk -F' = ' '/PrivateKey/{print $2}' wgcf-profile.conf)
+  Address=$(awk -F' = ' '/Address/{print $2}' wgcf-profile.conf | tr '\n' ',' | sed 's/,$//;s/,/, /g')
+  PublicKey=$(awk -F' = ' '/PublicKey/{print $2}' wgcf-profile.conf)
+  Endpoint=$(awk -F' = ' '/Endpoint/{print $2}' wgcf-profile.conf)
+  MTU=$(awk -F' = ' '/MTU/{print $2}' wgcf-profile.conf)
+
+  WireguardURL="wireguard://$(urlencode "$PrivateKey")@188.114.96.47:2408?address=$(urlencode "$Address")&publickey=$(urlencode "$PublicKey")&mtu=$(urlencode "$MTU")#Peyman_WireGuard"
+
+  echo $WireguardURL
 }
 
 endipresult() {
