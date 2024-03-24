@@ -42,7 +42,7 @@ bash <(curl -fsSL https://raw.githubusercontent.com/Ptechgithub/warp/main/endip/
  ### در پاسخ به سوالات فقط `y` را بزنید و درنهایت خود اسکریپت را اجرا کنید.
 
 
-
+### برای دریافت لایسنس رایگان از طریق ربات تلگرام روی لینک زیر کلیک کنید.
 [دریافت License Key رایگان](https://t.me/generatewarpplusbot)
 
 ## Credits.
