@@ -200,10 +200,10 @@ generate() {
     echo -e "${purple}*********************${rest}"
     echo -e "${green}Generating free warp config . please wait ...${rest}"
     echo ""
+    rm wgcf-account.toml >/dev/null 2>&1
     wgcf register --accept-tos
     echo -e "${blue}***********************${rest}"
     wgcf generate
-    rm wgcf-account.toml >/dev/null 2>&1
   
     if [ -f wgcf-profile.conf ]; then
         show
