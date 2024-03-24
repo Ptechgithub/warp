@@ -194,19 +194,11 @@ generate() {
   wgcf generate
   rm wgcf-account.toml >/dev/null 2>&1
   
-  echo ""
-  echo -e "${purple}************************************${rest}"
-  echo -e "${purple}*   👇${green}Here is WireGuard Config👇   ${purple}*${rest}"
-  echo -e "${purple}************************************${rest}"
-  echo -e "${cyan}       👇Copy for :${yellow}[Nekobox] 👇${rest}"
-  echo ""
-  echo -e "${green}$(cat wgcf-profile.conf)${rest}"
-  echo ""
-  echo -e "${purple}************************************${rest}"
-  echo -e "${cyan}       👇Copy for :${yellow}[V2rayNG] 👇${rest}"
-  echo ""
-  echo -e "${green}$(v2ray) ${rest}"
-  echo -e "${purple}************************************${rest}"
+  if [ -f wgcf-profile.conf ]; then
+      show
+  else
+      echo -e "${red}wgcf-profile.conf not found in current path or failed to install${rest}"
+  fi
 }
 
 v2ray() {
@@ -234,6 +226,24 @@ v2ray() {
   WireguardURL="wireguard://$(urlencode "$PrivateKey")@188.114.96.47:2408?address=$(urlencode "$Address")&publickey=$(urlencode "$PublicKey")&mtu=$(urlencode "$MTU")#Peyman_WireGuard"
 
   echo $WireguardURL
+}
+
+show() {
+    echo ""
+    sleep1
+    clear
+    echo -e "${purple}************************************${rest}"
+    echo -e "${purple}*   👇${green}Here is WireGuard Config👇   ${purple}*${rest}"
+    echo -e "${purple}************************************${rest}"
+    echo -e "${cyan}       👇Copy for :${yellow}[Nekobox] 👇${rest}"
+    echo ""
+    echo -e "${green}$(cat wgcf-profile.conf)${rest}"
+    echo ""
+    echo -e "${purple}************************************${rest}"
+    echo -e "${cyan}       👇Copy for :${yellow}[V2rayNG] 👇${rest}"
+    echo ""
+    echo -e "${green}$(v2ray) ${rest}"
+    echo -e "${purple}************************************${rest}"
 }
 
 endipresult() {
