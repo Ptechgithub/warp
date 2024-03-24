@@ -248,6 +248,7 @@ show() {
     echo -e "${cyan}       👇Copy for :${yellow}[V2rayNG] 👇${rest}"
     echo ""
     echo -e "${green}$(v2ray)${rest}"
+    echo ""
     echo -e "${purple}************************************${rest}"
     echo -e "${blue}1) if you couldn't paste it in ${yellow}V2rayNG${yellow} or ${yellow}Nekobox${blue}, copy it to a text editor and remove any extra spaces.${rest}"
     echo ""
