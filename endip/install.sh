@@ -189,6 +189,7 @@ generate() {
   
   echo -e "${purple}*********************${rest}"
   echo -e "${green}Generating please wait ...${rest}"
+  echo ""
   wgcf register --accept-tos
   echo -e "${blue}***********************${rest}"
   wgcf generate
