@@ -14,12 +14,12 @@ bash <(curl -fsSL https://raw.githubusercontent.com/Ptechgithub/warp/main/instal
 .
 
 ## اسکنر IP Warp و دریافت کانفیگ رایگان WireGuard برای V2ray و Nekobox و همچنين خود WireGuard 
-## Endpoint IP scanner
 ### این اسکریپت برای اسکن IP وارپ استفاده می‌شود.
 ```
 bash <(curl -fsSL https://raw.githubusercontent.com/Ptechgithub/warp/main/endip/install.sh)
 ```
 ![16](https://raw.githubusercontent.com/Ptechgithub/configs/main/media/16.jpg)
+#Endpoint IP scanner and free Config generator
 [دریافت License Key رایگان](https://t.me/generatewarpplusbot)
 
 ## Credits.
