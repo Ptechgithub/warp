@@ -21,6 +21,7 @@ bash <(curl -fsSL https://raw.githubusercontent.com/Ptechgithub/warp/main/instal
 
 
 ---
+![0](https://raw.githubusercontent.com/Ptechgithub/configs/main/media/line.gif)
 ---
 
 # [2]
