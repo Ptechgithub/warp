@@ -249,14 +249,14 @@ show() {
 	    Endip_v46="engage.cloudflareclient.com:2408"
 	fi
     echo -e "${purple}************************************${rest}"
-    echo -e "${purple}*   👇${green}Here is WireGuard Config👇   ${purple}*${rest}"
+    echo -e "${purple}*   ðŸ‘‡${green}Here is WireGuard ConfigðŸ‘‡   ${purple}*${rest}"
     echo -e "${purple}************************************${rest}"
-    echo -e "${cyan}       👇Copy for :${yellow}[Nekobox] 👇${rest}"
+    echo -e "${cyan}       ðŸ‘‡Copy for :${yellow}[Nekobox] ðŸ‘‡${rest}"
     echo ""
     echo -e "${green}$(cat wgcf-profile.conf)${rest}"
     echo ""
     echo -e "${purple}************************************${rest}"
-    echo -e "${cyan}       👇Copy for :${yellow}[V2rayNG] 👇${rest}"
+    echo -e "${cyan}       ðŸ‘‡Copy for :${yellow}[V2rayNG] ðŸ‘‡${rest}"
     echo ""
     echo -e "${green}$(v2ray)${rest}"
     echo ""
@@ -307,6 +307,34 @@ endipresult() {
     exit
 }
 
+# Run wire-g and get Wireguard Config
+wire-g() {
+    if [ ! -f "$PREFIX/bin/wire-g" ]; then
+        if [ -f "$HOME/.termux" ]; then
+            if ! command -v wg &> /dev/null || ! command -v jq &> /dev/null || ! command -v xz &> /dev/null || ! command -v bzip2 &> /dev/null; then
+                pkg update -y && pkg upgrade -y
+                pkg install wireguard-tools jq xz-utils bzip2 -y
+            fi
+        else
+            if ! command -v wg &> /dev/null || ! command -v jq &> /dev/null || ! command -v xz &> /dev/null || ! command -v bzip2 &> /dev/null; then
+                apt update -y
+                apt install wireguard-tools jq xz-utils bzip2 -y
+            fi
+        fi
+        curl -o $PREFIX/bin/wire-g https://raw.githubusercontent.com/Ptechgithub/warp/main/wire-g.sh
+        chmod +x $PREFIX/bin/wire-g
+        echo ""
+        echo -e "${purple}*********************${rest}"
+        echo -e "${yellow}Run --> ${green}wire-g${rest}"
+        echo -e "${purple}*********************${rest}"
+    else
+        echo ""
+        echo -e "${purple}*********************${rest}"
+        echo -e "${yellow}Run --> ${green}wire-g${rest}"
+        echo -e "${purple}*********************${rest}"
+    fi
+}
+
 clear
 echo -e "${cyan}By --> Peyman * Github.com/Ptechgithub * ${rest}"
 echo ""
@@ -317,7 +345,9 @@ echo -e "${purple}[1] ${blue}Preferred${green} IPV4${purple}  * ${rest}"
 echo -e "${purple}                    *${rest}"
 echo -e "${purple}[2] ${blue}Preferred${green} IPV6${purple}  * ${rest}"
 echo -e "${purple}                    *${rest}"
-echo -e "${purple}[3] ${green}Get free Config${purple} *${rest}"
+echo -e "${purple}[3] ${blue}Get ${green}free Config${purple} *${rest}"
+echo -e "${purple}                    *${rest}"
+echo -e "${purple}[4] ${blue}Install ${green}wire-g${purple}  *${rest}"
 echo -e "${purple}                    *${rest}"
 echo -e "${purple}[${red}0${purple}] Exit            *${rest}"
 echo -e "${purple}*********************${rest}"
@@ -341,9 +371,12 @@ case "$choice" in
     3)
         generate
         ;;
+    4)
+        wire-g
+        ;;
     0)
         echo -e "${purple}*********************${rest}"
-        echo -e "${cyan}By 🖐${rest}"
+        echo -e "${cyan}By ðŸ–${rest}"
         exit
         ;;
     *)
