@@ -8,7 +8,7 @@ bash <(curl -fsSL https://raw.githubusercontent.com/Ptechgithub/warp/main/endip/
 ![16](https://raw.githubusercontent.com/Ptechgithub/configs/main/media/16.jpg)
 
 
-## اسکنر IP Warp و دریافت کانفیگ رایگان WireGuard برای V2ray و Nekobox و همچنين خود WireGuard 
+## اسکنر IP Warp و دریافت کانفیگ رایگان WireGuard برای V2ray و Nekobox و همچنين خود WireGuard  (دو روش)
 
 #Endpoint IP scanner and free Config generator
 ### این اسکریپت برای اسکن IP وارپ استفاده می‌شود.
