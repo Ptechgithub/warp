@@ -30,6 +30,6 @@ bash <(curl -fsSL https://raw.githubusercontent.com/Ptechgithub/warp/main/endip/
 ### برای دریافت لایسنس رایگان از طریق ربات تلگرام روی لینک زیر کلیک کنید.
 [دریافت License Key رایگان](https://t.me/generatewarpplusbot)
 
-### [4] با انتخاب گزینه ی 4 یک کانفیگ وایرگارد تولید شده که همراه با Reserved  میباشد. و جهت استفاده در V2rayNG میباشد.
+### [4] با انتخاب گزینه ی 4 یک کانفیگ وایرگارد تولید شده که همراه با مقدار Reserved  است. و جهت استفاده در V2rayNG میباشد.
 ## Credits.
 [P3TERX](https://github.com/P3TERX/warp.sh) & [yonggekkk](https://github.com/yonggekkk) & [Misaka-blog](https://github.com/Misaka-blog) & [ViRb3](https://github.com/ViRb3/wgcf) & [ProjectWARP](https://gitlab.com/ProjectWARP)
