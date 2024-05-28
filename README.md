@@ -1,31 +1,7 @@
-# Warp and Warp +
+# Warp Endpoint Scanner
+# Wire-g Installer
 
-## در این پروژه 2 اسکریپت وجود وارد اولی نیاز به سرور دارد  و برای نصب warp روی سرور و تغییر آی پی آن استفاده میشود. و اسکریپت دوم هم روی سرور و هم روی `Termux` موبایل اجرا میشود که برای اسکن آی پی سالم و همچنین تولید کانفیگ رایگان WireGuard استفاده میشود.
-
-### برای اسکن ای پی روی ویندوز فایل [win_warp_ip.zip](https://github.com/Ptechgithub/warp/blob/main/endip/win_warp_ip.zip) دانلود کنید و از حالت فشرده خارج کنید سپس فایل win_scaner را اجرا کنید. 
----
----
-
-# [1]
-
- این اسکریپت به طور خودکار CloudFlare WARP را در لینوکس نصب و پیکربندی می‌کند، با کلاینت رسمی WARP یا WireGuard به شبکه‌های WARP متصل می‌شود.
- 
- امکان فعال کردن warp یا warp + روی IPV4 و IPV6 به صورت انتخابی.
-
-inatall
-```
-bash <(curl -fsSL https://raw.githubusercontent.com/Ptechgithub/warp/main/install.sh)
-```
-
-![15](https://raw.githubusercontent.com/Ptechgithub/configs/main/media/15.jpg)
-
-
----
-![0](https://raw.githubusercontent.com/Ptechgithub/configs/main/media/line.gif)
----
-
-# [2]
-
+# اسکنر آی پی وارپ و نصب کننده ی wire-g (کانفیگ رایگان وایرگارد)
 install
 ```
 bash <(curl -fsSL https://raw.githubusercontent.com/Ptechgithub/warp/main/endip/install.sh)
@@ -56,4 +32,4 @@ bash <(curl -fsSL https://raw.githubusercontent.com/Ptechgithub/warp/main/endip/
 [دریافت License Key رایگان](https://t.me/generatewarpplusbot)
 
 ## Credits.
-[P3TERX](https://github.com/P3TERX/warp.sh) & [yonggekkk](https://github.com/yonggekkk) & [Misaka-blog](https://github.com/Misaka-blog) & [ViRb3](https://github.com/ViRb3/wgcf)
+[P3TERX](https://github.com/P3TERX/warp.sh) & [yonggekkk](https://github.com/yonggekkk) & [Misaka-blog](https://github.com/Misaka-blog) & [ViRb3](https://github.com/ViRb3/wgcf) & [ProjectWARP](https://gitlab.com/ProjectWARP)
