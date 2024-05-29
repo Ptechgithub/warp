@@ -12,7 +12,6 @@ bash <(curl -fsSL https://raw.githubusercontent.com/Ptechgithub/warp/main/endip/
 
 #Endpoint IP scanner and free Config generator
 ![0](https://raw.githubusercontent.com/Ptechgithub/configs/main/media/line.gif)
-### این اسکریپت برای اسکن IP وارپ استفاده می‌شود.
 ### ابتدا با انتخاب 1 یا 2 یک ای پی سالم پیدا کنید.
 ### با انتخاب 3 یک کانفیگ رایگان تولید میشود و به طور خودکار IP سالم  پیدا شده در کانفیگ اضافه میشود.
 ### این کانفیگ برای `V2rayNG` و `Nekobox` و برنامه `WireGuard` قابل استفاده است.
