@@ -34,6 +34,7 @@ bash <(curl -fsSL https://raw.githubusercontent.com/Ptechgithub/warp/main/endip/
 ### [4] با انتخاب گزینه ی 4 یک کانفیگ وایرگارد تولید شده که همراه با مقدار Reserved  است. و جهت استفاده در V2rayNG میباشد.
 ### این گزینه برای شما wire-g را نصب میکند برای نمایش کامل راهنما کافیه عبارت `warp-g -h` را وارد کنید و برای گرفتن کانفیگ وایرگارد فقط `warp-g` را وارد کرده و اینتر بزنید.(این گزینه مجدد نیاز به نصب و اجرای مجدد توسط اسکریپت نمی باشد). 
 
+### جهت دانلود اسکنر ویندوز کلیک کنید.[Win_warp_ip.zip](https://raw.githubusercontent.com/Ptechgithub/warp/main/endip/win_warp_ip.zip)
 ## اسکریپت نصب وارپ سرور به لینک [WarpServer](https://github.com/Ptechgithub/WarpServer) منتقل شد. 
 ## Credits.
 [P3TERX](https://github.com/P3TERX/warp.sh) & [yonggekkk](https://github.com/yonggekkk) & [Misaka-blog](https://github.com/Misaka-blog) & [ViRb3](https://github.com/ViRb3/wgcf) & [ProjectWARP](https://gitlab.com/ProjectWARP)
