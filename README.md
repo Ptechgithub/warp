@@ -38,5 +38,6 @@ bash <(curl -fsSL https://raw.githubusercontent.com/Ptechgithub/warp/main/endip/
 ### جهت دانلود اسکنر ویندوز کلیک کنید.[Win_warp_ip.zip](https://raw.githubusercontent.com/Ptechgithub/warp/main/endip/win_warp_ip.zip)
 ---
 ### اسکریپت نصب وارپ سرور به لینک [WarpServer](https://github.com/Ptechgithub/WarpServer) منتقل شد. 
+---
 ## Credits.
 [P3TERX](https://github.com/P3TERX/warp.sh) & [yonggekkk](https://github.com/yonggekkk) & [Misaka-blog](https://github.com/Misaka-blog) & [ViRb3](https://github.com/ViRb3/wgcf) & [ProjectWARP](https://gitlab.com/ProjectWARP)
