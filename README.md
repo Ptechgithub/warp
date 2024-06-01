@@ -8,11 +8,12 @@ bash <(curl -fsSL https://raw.githubusercontent.com/Ptechgithub/warp/main/endip/
 ![16](https://raw.githubusercontent.com/Ptechgithub/configs/main/media/16.jpg)
 
 ### کانال دریافت کانفیگ وایرگارد [WireVpnGuard](https://t.me/WireVpnGuard)
----
+![0](https://raw.githubusercontent.com/Ptechgithub/configs/main/media/line.gif)
+
 ## اسکنر IP Warp و دریافت کانفیگ رایگان WireGuard برای V2ray و Nekobox و همچنين خود WireGuard  (دو روش)
 
 #Endpoint IP scanner and free Config generator
-![0](https://raw.githubusercontent.com/Ptechgithub/configs/main/media/line.gif)
+
 ### ابتدا با انتخاب 1 یا 2 یک ای پی سالم پیدا کنید.
 ---
 ### با انتخاب 3 یک کانفیگ رایگان تولید میشود و به طور خودکار IP سالم  پیدا شده در کانفیگ اضافه میشود.
