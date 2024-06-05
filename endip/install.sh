@@ -9,7 +9,7 @@ purple='\033[0;35m'
 cyan='\033[0;36m'
 white='\033[0;37m'
 rest='\033[0m'
-
+#choosing type of process
 case "$(uname -m)" in
 	x86_64 | x64 | amd64 )
 	    cpu=amd64
