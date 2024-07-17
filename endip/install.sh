@@ -228,14 +228,14 @@ show() {
 		Endip_v46="engage.cloudflareclient.com:2408"
 	fi
 	echo -e "${purple}************************************${rest}"
-	echo -e "${purple}*   ðŸ‘‡${green}Here is WireGuard ConfigðŸ‘‡   ${purple}*${rest}"
+	echo -e "${purple}*   👇${green}Here is WireGuard Config👇   ${purple}*${rest}"
 	echo -e "${purple}************************************${rest}"
-	echo -e "${cyan}       ðŸ‘‡Copy for :${yellow}[Nekobox] ðŸ‘‡${rest}"
+	echo -e "${cyan}       👇Copy for :${yellow}[Nekobox] 👇${rest}"
 	echo ""
 	echo -e "${green}$(cat wgcf-profile.conf)${rest}"
 	echo ""
 	echo -e "${purple}************************************${rest}"
-	echo -e "${cyan}       ðŸ‘‡Copy for :${yellow}[V2rayNG] ðŸ‘‡${rest}"
+	echo -e "${cyan}       👇Copy for :${yellow}[V2rayNG] 👇${rest}"
 	echo ""
 	echo -e "${green}$(v2ray)${rest}"
 	echo ""
@@ -322,6 +322,7 @@ cloner() {
 		if [ -d "$PREFIX" ] && [ "$(uname -o)" = "Android" ]; then
 			echo "Installing wireguard-tools"
 			pkg install wireguard-tools -y
+			pkg install jq -y
 		elif [ -x "$(command -v apt)" ]; then
 			echo "Installing wireguard-tools on Debian/Ubuntu"
 			sudo apt update -y && sudo apt install wireguard-tools -y
@@ -554,7 +555,7 @@ case "$choice" in
 	;;
 0)
 	echo -e "${purple}*********************${rest}"
-	echo -e "${cyan}By 👋${rest}"
+	echo -e "${cyan}By ${rest}"
 	exit
 	;;
 *)
