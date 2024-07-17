@@ -156,6 +156,7 @@ endipv6() {
 	done
 }
 
+# Wgcf
 generate() {
 	if ! command -v wgcf &>/dev/null; then
 		echo -e "${purple}*********************${rest}"
