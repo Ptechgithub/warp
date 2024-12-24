@@ -170,7 +170,7 @@ generate() {
 				chmod +x "$PREFIX/bin/wgcf"
 			fi
 		else
-			curl -L -o wgcf -# --retry 2 "https://github.com/ViRb3/wgcf/releases/download/v2.2.22/wgcf_2.2.22_linux_$cpu"
+			curl -L -o wgcf -# --retry 2 "https://github.com/ViRb3/wgcf/releases/download/v2.2.24/wgcf_2.2.24_linux_$cpu"
 			cp wgcf "$PREFIX/usr/local/bin"
 			chmod +x "$PREFIX/usr/local/bin/wgcf"
 		fi
